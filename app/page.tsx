@@ -1,5 +1,21 @@
+import AboutUs from "./components/Home/AboutUs";
+import CompanyPhilosophy from "./components/Home/CompanyPhilosophy";
+import Hero from "./components/Home/Hero";
+import OurCharts from "./components/Home/OurCharts";
+import OurPartners from "./components/Home/OurPartners";
+import OurService from "./components/Home/OurService";
+
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"></div>
+    <div className="flex flex-col gap-14">
+      <Hero />
+      <OurPartners />
+      <div className="flex flex-col gap-14 mobile-lines">
+        <AboutUs />
+        <OurService />
+      </div>
+      <CompanyPhilosophy />
+      <OurCharts />
+    </div>
   );
 }
