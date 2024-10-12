@@ -9,7 +9,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #161616;
     --foreground: #ededed;
   }
 }
@@ -24,4 +24,10 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+
+.mobile-lines {
+  background: url("/MobileLines.svg") no-repeat ;
+  background-size: contain; 
 }
