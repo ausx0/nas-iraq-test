@@ -1,3 +1,4 @@
+import React from "react";
 import AboutUs from "./components/Home/AboutUs";
 import CompanyPhilosophy from "./components/Home/CompanyPhilosophy";
 import Hero from "./components/Home/Hero";

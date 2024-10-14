@@ -1,3 +1,28 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    // React hooks rules
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    // Typescript rules
+    "@typescript-eslint/no-unused-vars": ["warn"], // Warn for unused variables
+    "@typescript-eslint/explicit-module-boundary-types": "off", // Optional, but can be turned on for strict typing
+    "@typescript-eslint/no-explicit-any": "warn", // Warn for using 'any' type
+    "react/prop-types": "off", // Disable prop-types as we use TypeScript
+    // General best practices
+    "no-console": "warn", // Warn when console.log is used
+    "prefer-const": "error" // Prefer const over let for variables that are never reassigned
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Automatically detect the version of React to use
+    }
+  }
 }

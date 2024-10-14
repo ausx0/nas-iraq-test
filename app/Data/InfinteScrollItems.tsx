@@ -8,4 +8,16 @@ export const InfinteScrollItems = [
   {
     image: "nasa.png",
   },
+  {
+    image: "bmw.png",
+  },
+  {
+    image: "nasa.png",
+  },
+  {
+    image: "bmw.png",
+  },
+  {
+    image: "nasa.png",
+  },
 ];
