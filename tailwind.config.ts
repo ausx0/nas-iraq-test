@@ -9,6 +9,12 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
+  variants: {
+    extend: {
+      // ...
+      backgroundOpacity: ["active"],
+    },
+  },
   theme: {
     extend: {
       animation: {

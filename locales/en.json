@@ -12,11 +12,20 @@
     "OurCharts": "Our charts",
     "NetProfit": "Net Profit",
     "PrimaryText": "Primary Text",
-    "SecondaryText": "Secondary text"
+    "SecondaryText": "Secondary text",
+    "News": "News",
+    "ShowAllNews": "Show All News",
+    "PricingTitle": "Simple pricing for your Business",
+    "PricingDescription": "We have several powerful plans to showcase your business and get discoveredas a creative entrepreneurs. Everything you need."
   },
 
   "OurPartners": "Our Partners",
   "JoinUs": "Join us",
   "ContactUs": "Contact us",
-  "ReadMore": "Read more"
+  "ReadMore": "Read more",
+  "FooterTitle": "What are you waiting for ?",
+  "FooterDescription": "Register now to get the best delivery experience for you and your clients in Iraq!",
+  "CopyRights": "© 2024 Leader Express Delivery Company. All rights reserved.",
+  "YourEmail": "Your email",
+  "RegisterNow": "register now"
 }

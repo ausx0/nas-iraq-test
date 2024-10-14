@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "framer-motion";
+import { stagger, useAnimate } from "framer-motion";
 import { cn } from "@/app/lib/utils";
 
 export const TextGenerateEffect = ({
@@ -16,44 +16,52 @@ export const TextGenerateEffect = ({
 }) => {
   const [scope, animate] = useAnimate();
   const wordsArray = words.split(" ");
+
   useEffect(() => {
-    animate(
-      "span",
-      {
-        opacity: 1,
-        filter: filter ? "blur(0px)" : "none",
-      },
-      {
-        duration: duration ? duration : 1,
-        delay: stagger(0.2),
-      }
-    );
-  }, [scope.current]);
+    // Ensure that animation starts only after the element is mounted
+    if (scope.current) {
+      animate(
+        "span",
+        {
+          opacity: 1,
+          filter: filter ? "blur(0px)" : "none",
+        },
+        {
+          duration: duration ? duration : 1,
+          delay: stagger(0.2),
+        }
+      );
+    }
+  }, [scope, animate, filter, duration]);
 
   const renderWords = () => {
     return (
-      <motion.div ref={scope}>
+      <div ref={scope} className="">
         {wordsArray.map((word, idx) => {
+          const isGradient = idx >= wordsArray.length - 3; // Apply gradient to the last three words
           return (
-            <motion.span
+            <span
               key={word + idx}
-              className="dark:text-white text-white opacity-0"
+              className={cn(
+                "text-3xl md:text-5xl lg:text-6xl dark:text-white text-white opacity-0",
+                isGradient && "gradient-text" // Conditional class for gradient
+              )}
               style={{
                 filter: filter ? "blur(10px)" : "none",
               }}
             >
               {word}{" "}
-            </motion.span>
+            </span>
           );
         })}
-      </motion.div>
+      </div>
     );
   };
 
   return (
     <div className={cn("font-bold", className)}>
       <div className="mt-4">
-        <div className=" dark:text-white text-white text-2xl leading-snug tracking-wide">
+        <div className="dark:text-white text-white text-2xl leading-snug tracking-wide">
           {renderWords()}
         </div>
       </div>

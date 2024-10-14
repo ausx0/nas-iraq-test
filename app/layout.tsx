@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google"; // Import Poppins font from Google
-import "./globals.css";
+import "./Styles/globals.css";
 import NavbarComponent from "./components/Common/Navbar";
 import { getLocale, getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
+import FooterComponent from "./components/Common/Footer";
 
 // Import the Poppins font with weight ranges you need
 const poppins = Poppins({
@@ -34,6 +35,9 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <NavbarComponent />
           {children}
+          <div className="bg-primary">
+            <FooterComponent />
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -11,7 +11,6 @@ import {
   Link,
   Button,
 } from "@nextui-org/react";
-
 import React from "react";
 import { menuItems } from "../../Data/NavbarItems";
 
@@ -20,16 +19,60 @@ const NavbarComponent = () => {
 
   return (
     <>
-      <Navbar onMenuOpenChange={setIsMenuOpen} className="py-">
-        <NavbarContent>
+      <Navbar
+        isBordered={false}
+        onMenuOpenChange={setIsMenuOpen}
+        className="py-2 px-10 w-full"
+        maxWidth="full"
+        position="static"
+      >
+        {/* Mobile: Logo and Menu Toggle */}
+        <NavbarContent
+          justify="start"
+          className="flex sm:hidden justify-between w-full"
+        >
+          <NavbarBrand>
+            <Image src="/logo.png" alt="Logo" width="113" height="33" />
+          </NavbarBrand>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="sm:hidden"
           />
-          <NavbarBrand className="invisible md:visible">
-            <Image src="/logo.png" alt="" width="113" height="33" />
+        </NavbarContent>
+
+        {/* Desktop: Logo Centered */}
+        <NavbarContent className="hidden sm:flex justify-center gap-4">
+          <NavbarBrand className="invisible lg:visible">
+            <Image src="/logo.png" alt="Logo" width="113" height="33" />
           </NavbarBrand>
         </NavbarContent>
+
+        {/* Desktop: Menu Items */}
+        <NavbarContent className="hidden sm:flex gap-10 font-thin justify-center">
+          {menuItems.map((item, index) => (
+            <NavbarItem key={`${item}-${index}`}>
+              <Link className="w-full text-white font-thin" href="#" size="lg">
+                {item.label}
+              </Link>
+            </NavbarItem>
+          ))}
+        </NavbarContent>
+
+        {/* Mobile: Hidden login and sign-up */}
+        <NavbarContent className="hidden sm:flex " justify="end">
+          <NavbarItem className="hidden lg:flex">
+            <Button radius="full" variant="bordered" href="#">
+              Contact us
+            </Button>
+          </NavbarItem>
+          <NavbarItem>
+            <Button radius="full" as={Link} color="primary" href="#">
+              Sign Up
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
+
+        {/* Mobile: Collapsible Menu */}
         <NavbarMenu>
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
@@ -38,11 +81,7 @@ const NavbarComponent = () => {
               </Link>
             </NavbarMenuItem>
           ))}
-        </NavbarMenu>{" "}
-        <div className="invisible md:visible"></div>
-        <div>
-          <Image src="/logo.png" alt="" width="64" height="64" />
-        </div>
+        </NavbarMenu>
       </Navbar>
     </>
   );
